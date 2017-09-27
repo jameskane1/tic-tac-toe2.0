@@ -23,10 +23,12 @@ const x1y1 = function () {
     console.log('X has won!!')
   } else if (winningLogic.oWins() === true) {
     console.log('O has won!!')
-  } else {
+  } else if (turn < 10) {
     console.log('next persons turn!')
   }
-  console.log(winningLogic.gameOver)
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
+  }
 }
 
 const x2y1 = function () {
@@ -44,10 +46,12 @@ const x2y1 = function () {
     console.log('X has won!!')
   } else if (winningLogic.oWins() === true) {
     console.log('O has won!!')
-  } else {
+  } else if (turn < 10) {
     console.log('next persons turn!')
   }
-  console.log(winningLogic.gameOver)
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
+  }
 }
 
 const x3y1 = function () {
@@ -65,10 +69,12 @@ const x3y1 = function () {
     console.log('X has won!!')
   } else if (winningLogic.oWins() === true) {
     console.log('O has won!!')
-  } else {
+  } else if (turn < 10) {
     console.log('next persons turn!')
   }
-  console.log(winningLogic.gameOver)
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
+  }
 }
 
 const x1y2 = function () {
@@ -86,10 +92,12 @@ const x1y2 = function () {
     console.log('X has won!!')
   } else if (winningLogic.oWins() === true) {
     console.log('O has won!!')
-  } else {
+  } else if (turn < 10) {
     console.log('next persons turn!')
   }
-  console.log(winningLogic.gameOver)
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
+  }
 }
 
 const x2y2 = function () {
@@ -107,10 +115,12 @@ const x2y2 = function () {
     console.log('X has won!!')
   } else if (winningLogic.oWins() === true) {
     console.log('O has won!!')
-  } else {
+  } else if (turn < 10) {
     console.log('next persons turn!')
   }
-  console.log(winningLogic.gameOver)
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
+  }
 }
 console.log(gameBoard)
 const x3y2 = function () {
@@ -128,10 +138,12 @@ const x3y2 = function () {
     console.log('X has won!!')
   } else if (winningLogic.oWins() === true) {
     console.log('O has won!!')
-  } else {
+  } else if (turn < 10) {
     console.log('next persons turn!')
   }
-  console.log(winningLogic.gameOver)
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
+  }
 }
 console.log(gameBoard)
 const x1y3 = function () {
@@ -149,10 +161,12 @@ const x1y3 = function () {
     console.log('X has won!!')
   } else if (winningLogic.oWins() === true) {
     console.log('O has won!!')
-  } else {
+  } else if (turn < 10) {
     console.log('next persons turn!')
   }
-  console.log(winningLogic.gameOver)
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
+  }
 }
 
 const x2y3 = function () {
@@ -170,10 +184,12 @@ const x2y3 = function () {
     console.log('X has won!!')
   } else if (winningLogic.oWins() === true) {
     console.log('O has won!!')
-  } else {
+  } else if (turn < 10) {
     console.log('next persons turn!')
   }
-  console.log(winningLogic.gameOver)
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
+  }
 }
 
 console.log(gameBoard)
@@ -192,11 +208,12 @@ const x3y3 = function () {
     console.log('X has won!!')
   } else if (winningLogic.oWins() === true) {
     console.log('O has won!!')
-  } else {
+  } else if (turn < 10) {
     console.log('next persons turn!')
   }
-  if (gameBoard.length === 9)
-  console.log(winningLogic.gameOver)
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
+  }
 }
 
 console.log(gameBoard)
