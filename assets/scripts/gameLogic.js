@@ -3,7 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 
-const saveEvents = require('./events')
+// const saveEvents = require('./events')
 
 const gameBoard = []
 
@@ -95,7 +95,7 @@ $('#x3y2').on('click', function () {
   }
 }
 )
-$('#x1y3').on('click', function () {// let x1y1gameBoard = []
+$('#x1y3').on('click', function () {
   if (gameBoard.length === 0 || gameBoard.length === 2 || gameBoard.length === 4 || gameBoard.length === 6 || gameBoard.length === 8) {
     gameBoard.push('X')
     return $(this).text('X')
