@@ -22,9 +22,20 @@ const signInFailure = function (error) {
   console.error(error)
 }
 
+const removeClass = function () {
+  $('#gameboard').removeClass('gameboard')
+}
+
+const addClass = function () {
+  $('#sign-in-submit').addClass('gameboard')
+  $('#sign-up-submit').addClass('gameboard')
+}
+
 export {
   signUpFailure,
   signInSuccess,
   signInFailure,
-  signUpSuccess
+  signUpSuccess,
+  removeClass,
+  addClass
 }

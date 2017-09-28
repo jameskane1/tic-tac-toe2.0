@@ -19,6 +19,8 @@ const onSignIn = function (event) {
   api.createSignIn(data)
   // console.log('data is ', data)
     .then(ui.signInSuccess)
+    .then(ui.removeClass)
+    .then(ui.addClass)
     .catch(ui.signInFailure)
 }
 
