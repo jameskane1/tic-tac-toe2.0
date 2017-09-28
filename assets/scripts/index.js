@@ -16,6 +16,8 @@ $(() => {
 // require('./example')
 
 $(() => {
+  // modal logic
+  $(window).on('load', function () { $('#myModal').modal('show') })
   // this is x vs o logic
   $('#x1y1').one('click', gamesLogic.x1y1)
   $('#x2y1').one('click', gamesLogic.x2y1)
@@ -26,6 +28,7 @@ $(() => {
   $('#x1y3').one('click', gamesLogic.x1y3)
   $('#x2y3').one('click', gamesLogic.x2y3)
   $('#x3y3').on('click', gamesLogic.x3y3)
+
 // MUST US FORM ID NOT BUTTON ID!!!!
 // This is winner logic
 
