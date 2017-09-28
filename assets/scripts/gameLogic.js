@@ -1,107 +1,221 @@
 'use strict'
+
+const winningLogic = require('./winnerLogic')
+
 let turn = 1
 const gameBoard = []
+if (winningLogic.gameOver === true) {
+  $('#x3y3').unbind('click')
+}
 
 const x1y1 = function () {
   ++turn
-  if (turn % 2 === 0) {
+  if (turn % 2 === 0 && winningLogic.gameOver === false) {
     gameBoard[0] = 'X'
-    return $(this).text('X')
-  } else if (turn % 2 !== 0) {
+    $(this).text('X')
+  } else if (turn % 2 !== 0 && winningLogic.gameOver === false) {
     gameBoard[0] = 'O'
-    return $(this).text('O')
+    $(this).text('O')
+  } else if (winningLogic.gameOver === true) {
+    $(this).unbind()
   }
-  console.log('this is the turn count', turn)
+  if (winningLogic.xWins() === true) {
+    console.log('X has won!!')
+  } else if (winningLogic.oWins() === true) {
+    console.log('O has won!!')
+  } else if (turn < 10) {
+    console.log('next persons turn!')
+  }
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
+  }
 }
-console.log('this is the turn count', turn)
+
 const x2y1 = function () {
   ++turn
-  if (turn % 2 === 0) {
+  if (turn % 2 === 0 && winningLogic.gameOver === false) {
     gameBoard[1] = 'X'
-    return $(this).text('X')
-  } else if (turn % 2 !== 0) {
+    $(this).text('X')
+  } else if (turn % 2 !== 0 && winningLogic.gameOver === false) {
     gameBoard[1] = 'O'
-    return $(this).text('O')
+    $(this).text('O')
+  } else if (winningLogic.gameOver === true) {
+    $(this).unbind()
+  }
+  if (winningLogic.xWins() === true) {
+    console.log('X has won!!')
+  } else if (winningLogic.oWins() === true) {
+    console.log('O has won!!')
+  } else if (turn < 10) {
+    console.log('next persons turn!')
+  }
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
   }
 }
-console.log('this is the turn count', turn)
-console.log(gameBoard)
+
 const x3y1 = function () {
   ++turn
-  if (turn % 2 === 0) {
+  if (turn % 2 === 0 && winningLogic.gameOver === false) {
     gameBoard[2] = 'X'
-    return $(this).text('X')
-  } else if (turn % 2 !== 0) {
+    $(this).text('X')
+  } else if (turn % 2 !== 0 && winningLogic.gameOver === false) {
     gameBoard[2] = 'O'
-    return $(this).text('O')
+    $(this).text('O')
+  } else if (winningLogic.gameOver === true) {
+    $(this).unbind()
+  }
+  if (winningLogic.xWins() === true) {
+    console.log('X has won!!')
+  } else if (winningLogic.oWins() === true) {
+    console.log('O has won!!')
+  } else if (turn < 10) {
+    console.log('next persons turn!')
+  }
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
   }
 }
-console.log(gameBoard)
+
 const x1y2 = function () {
   ++turn
-  if (turn % 2 === 0) {
+  if (turn % 2 === 0 && winningLogic.gameOver === false) {
     gameBoard[3] = 'X'
-    return $(this).text('X')
-  } else if (turn % 2 !== 0) {
+    $(this).text('X')
+  } else if (turn % 2 !== 0 && winningLogic.gameOver === false) {
     gameBoard[3] = 'O'
-    return $(this).text('O')
+    $(this).text('O')
+  } else if (winningLogic.gameOver === true) {
+    $(this).unbind()
+  }
+  if (winningLogic.xWins() === true) {
+    console.log('X has won!!')
+  } else if (winningLogic.oWins() === true) {
+    console.log('O has won!!')
+  } else if (turn < 10) {
+    console.log('next persons turn!')
+  }
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
   }
 }
-console.log(gameBoard)
+
 const x2y2 = function () {
   ++turn
-  if (turn % 2 === 0) {
+  if (turn % 2 === 0 && winningLogic.gameOver === false) {
     gameBoard[4] = 'X'
-    return $(this).text('X')
-  } else if (turn % 2 !== 0) {
+    $(this).text('X')
+  } else if (turn % 2 !== 0 && winningLogic.gameOver === false) {
     gameBoard[4] = 'O'
-    return $(this).text('O')
+    $(this).text('O')
+  } else if (winningLogic.gameOver === true) {
+    $(this).unbind()
+  }
+  if (winningLogic.xWins() === true) {
+    console.log('X has won!!')
+  } else if (winningLogic.oWins() === true) {
+    console.log('O has won!!')
+  } else if (turn < 10) {
+    console.log('next persons turn!')
+  }
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
   }
 }
 console.log(gameBoard)
 const x3y2 = function () {
   ++turn
-  if (turn % 2 === 0) {
+  if (turn % 2 === 0 && winningLogic.gameOver === false) {
     gameBoard[5] = 'X'
-    return $(this).text('X')
-  } else if (turn % 2 !== 0) {
+    $(this).text('X')
+  } else if (turn % 2 !== 0 && winningLogic.gameOver === false) {
     gameBoard[5] = 'O'
-    return $(this).text('O')
+    $(this).text('O')
+  } else if (winningLogic.gameOver === true) {
+    $(this).unbind()
+  }
+  if (winningLogic.xWins() === true) {
+    console.log('X has won!!')
+  } else if (winningLogic.oWins() === true) {
+    console.log('O has won!!')
+  } else if (turn < 10) {
+    console.log('next persons turn!')
+  }
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
   }
 }
 console.log(gameBoard)
 const x1y3 = function () {
   ++turn
-  if (turn % 2 === 0) {
+  if (turn % 2 === 0 && winningLogic.gameOver === false) {
     gameBoard[6] = 'X'
-    return $(this).text('X')
-  } else if (turn % 2 !== 0) {
+    $(this).text('X')
+  } else if (turn % 2 !== 0 && winningLogic.gameOver === false) {
     gameBoard[6] = 'O'
-    return $(this).text('O')
+    $(this).text('O')
+  } else if (winningLogic.gameOver === true) {
+    $(this).unbind()
+  }
+  if (winningLogic.xWins() === true) {
+    console.log('X has won!!')
+  } else if (winningLogic.oWins() === true) {
+    console.log('O has won!!')
+  } else if (turn < 10) {
+    console.log('next persons turn!')
+  }
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
   }
 }
-console.log(gameBoard)
+
 const x2y3 = function () {
   ++turn
-  if (turn % 2 === 0) {
+  if (turn % 2 === 0 && winningLogic.gameOver === false) {
     gameBoard[7] = 'X'
-    return $(this).text('X')
-  } else if (turn % 2 !== 0) {
+    $(this).text('X')
+  } else if (turn % 2 !== 0 && winningLogic.gameOver === false) {
     gameBoard[7] = 'O'
-    return $(this).text('O')
+    $(this).text('O')
+  } else if (winningLogic.gameOver === true) {
+    $(this).unbind()
+  }
+  if (winningLogic.xWins() === true) {
+    console.log('X has won!!')
+  } else if (winningLogic.oWins() === true) {
+    console.log('O has won!!')
+  } else if (turn < 10) {
+    console.log('next persons turn!')
+  }
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
   }
 }
+
 console.log(gameBoard)
 const x3y3 = function () {
   ++turn
-  if (turn % 2 === 0) {
+  if (turn % 2 === 0 && winningLogic.gameOver === false) {
     gameBoard[8] = 'X'
-    return $(this).text('X')
-  } else if (turn % 2 !== 0) {
+    $(this).text('X')
+  } else if (turn % 2 !== 0 && winningLogic.gameOver === false) {
     gameBoard[8] = 'O'
-    return $(this).text('O')
+    $(this).text('O')
+  } else if (winningLogic.gameOver === true) {
+    $(this).unbind()
+  }
+  if (winningLogic.xWins() === true) {
+    console.log('X has won!!')
+  } else if (winningLogic.oWins() === true) {
+    console.log('O has won!!')
+  } else if (turn < 10) {
+    console.log('next persons turn!')
+  }
+  if (turn === 10 && winningLogic.gameOver === false) {
+    console.log('It is a tie! please play a new game')
   }
 }
+
 console.log(gameBoard)
 export {
   x1y1,
