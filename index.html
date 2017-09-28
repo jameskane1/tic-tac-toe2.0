@@ -14,14 +14,25 @@
 
     <body>
       <h1>Tic-Tac-Toe</h1>
-
-
-      <form>
+<!-- visual response back  -->
+<div id='message'></div>
+<!-- sign up form -->
+      <form class='signup' id='sign-up-submit'>
+        <h5> Please enter Email PW and confirm PW to create an account</h5>
         <input name="credentials[email]" type="text" value="an@example.email">
         <input name="credentials[password]" type="password" value="an example password">
         <input name="credentials[password_confirmation]" type="password" value="an example password">
-        <button type="submit" class="btn btn-default" id='sign-up-submit'>Login</button>
+        <button type="submit" class="btn btn-default" >Login</button>
       </form>
+<br>
+      <!-- sign in form -->
+
+        <form class='signin' id='sign-in-submit'>
+          <h5> Please enter Email PW to login to your account</h5>
+          <input name="credentials[email]" type="text" value="an@example.email">
+          <input name="credentials[password]" type="password" value="an example password">
+          <button type="submit" class="btn btn-default">Login</button>
+        </form>
 
 <div class='gameboard'>
 <!-- game board row 1 -->

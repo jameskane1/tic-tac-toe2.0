@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const gamesLogic = require('./gameLogic')
+const submitValues = require('./events.js')
 // const winningLogic = require('./winnerLogic')
 
 $(() => {
@@ -16,8 +17,10 @@ $(() => {
 // require('./example')
 
 $(() => {
-  // modal logic
-  $(window).on('load', function () { $('#myModal').modal('show') })
+// sign up event handler
+  $('#sign-up-submit').on('submit', submitValues.onSignUp)
+  // sign up event handler
+  $('#sign-in-submit').on('submit', submitValues.onSignIn)
   // this is x vs o logic
   $('#x1y1').one('click', gamesLogic.x1y1)
   $('#x2y1').one('click', gamesLogic.x2y1)
