@@ -3,6 +3,8 @@
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const gamesLogic = require('./gameLogic.js')
+const winningLogic = require('./winnerLogic')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -44,9 +46,32 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onNewGame = function (event) {
+  event.preventDefault()
+  api.newGame(event)
+    .then(ui.newGameSuccess)
+    .then(gamesLogic.setTurn(1))
+    .then($('.box').text(''))
+    .then($('.box').unbind('click'))
+    .then($('#x1y1').one('click', gamesLogic.x1y1))
+    .then($('#x2y1').one('click', gamesLogic.x2y1))
+    .then($('#x3y1').one('click', gamesLogic.x3y1))
+    .then($('#x1y2').one('click', gamesLogic.x1y2))
+    .then($('#x2y2').one('click', gamesLogic.x2y2))
+    .then($('#x3y2').one('click', gamesLogic.x3y2))
+    .then($('#x1y3').one('click', gamesLogic.x1y3))
+    .then($('#x2y3').one('click', gamesLogic.x2y3))
+    .then($('#x3y3').one('click', gamesLogic.x3y3))
+    .then(gamesLogic.setBoard([]))
+    .then(winningLogic.gameOver = false)
+    .catch(ui.newGameFailure)
+  console.log('this is gameboard', gamesLogic.gameBoard)
+}
+
 export {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onNewGame
 }

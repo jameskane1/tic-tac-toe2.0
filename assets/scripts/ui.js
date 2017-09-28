@@ -26,6 +26,7 @@ const removeClass = function () {
   $('#gameboard').removeClass('gameboard')
   $('#change-password').removeClass('gameboard')
   $('#signoutbutton').removeClass('gameboard')
+  $('#newGameButton').removeClass('gameboard')
 }
 
 const addClass = function () {
@@ -41,6 +42,8 @@ const removeClassSignin = function () {
 const addClassBoard = function () {
   $('#gameboard').addClass('gameboard')
   $('#change-password').addClass('gameboard')
+  $('#signoutbutton').addClass('gameboard')
+  $('#newGameButton').addClass('gameboard')
 }
 
 const changePasswordSuccess = function (data) {
@@ -64,6 +67,18 @@ const signOutFailure = function (error) {
   console.error(error)
 }
 
+const newGameSuccess = function (data) {
+  // console.log(data)
+  store.game = data.game
+  $('#message').text('You have successfully created a new game!')
+  console.log('this is store game ', store.game)
+}
+
+const newGameFailure = function (error) {
+  $('#message').text('We were unable to start a new game')
+  console.error(error)
+}
+
 export {
   signUpFailure,
   signInSuccess,
@@ -76,5 +91,7 @@ export {
   signOutSuccess,
   signOutFailure,
   addClassBoard,
-  removeClassSignin
+  removeClassSignin,
+  newGameSuccess,
+  newGameFailure
 }

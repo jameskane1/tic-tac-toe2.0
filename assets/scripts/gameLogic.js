@@ -3,7 +3,7 @@
 const winningLogic = require('./winnerLogic')
 
 let turn = 1
-const gameBoard = []
+let gameBoard = []
 if (winningLogic.gameOver === true) {
   $('#x3y3').unbind('click')
 }
@@ -27,8 +27,11 @@ const x1y1 = function () {
     console.log('next persons turn!')
   }
   if (turn === 10 && winningLogic.gameOver === false) {
+    winningLogic.gameOver = true
     console.log('It is a tie! please play a new game')
   }
+  console.log('this is the turn', turn)
+  console.log('this is game over', winningLogic.gameOver)
 }
 
 const x2y1 = function () {
@@ -50,8 +53,11 @@ const x2y1 = function () {
     console.log('next persons turn!')
   }
   if (turn === 10 && winningLogic.gameOver === false) {
+    winningLogic.gameOver = true
     console.log('It is a tie! please play a new game')
   }
+  console.log('this is the turn', turn)
+  console.log('this is game over', winningLogic.gameOver)
 }
 
 const x3y1 = function () {
@@ -73,8 +79,11 @@ const x3y1 = function () {
     console.log('next persons turn!')
   }
   if (turn === 10 && winningLogic.gameOver === false) {
+    winningLogic.gameOver = true
     console.log('It is a tie! please play a new game')
   }
+  console.log('this is the turn', turn)
+  console.log('this is game over', winningLogic.gameOver)
 }
 
 const x1y2 = function () {
@@ -96,8 +105,11 @@ const x1y2 = function () {
     console.log('next persons turn!')
   }
   if (turn === 10 && winningLogic.gameOver === false) {
+    winningLogic.gameOver = true
     console.log('It is a tie! please play a new game')
   }
+  console.log('this is the turn', turn)
+  console.log('this is game over', winningLogic.gameOver)
 }
 
 const x2y2 = function () {
@@ -119,8 +131,11 @@ const x2y2 = function () {
     console.log('next persons turn!')
   }
   if (turn === 10 && winningLogic.gameOver === false) {
+    winningLogic.gameOver = true
     console.log('It is a tie! please play a new game')
   }
+  console.log('this is the turn', turn)
+  console.log('this is game over', winningLogic.gameOver)
 }
 console.log(gameBoard)
 const x3y2 = function () {
@@ -142,8 +157,11 @@ const x3y2 = function () {
     console.log('next persons turn!')
   }
   if (turn === 10 && winningLogic.gameOver === false) {
+    winningLogic.gameOver = true
     console.log('It is a tie! please play a new game')
   }
+  console.log('this is the turn', turn)
+  console.log('this is game over', winningLogic.gameOver)
 }
 console.log(gameBoard)
 const x1y3 = function () {
@@ -165,8 +183,11 @@ const x1y3 = function () {
     console.log('next persons turn!')
   }
   if (turn === 10 && winningLogic.gameOver === false) {
+    winningLogic.gameOver = true
     console.log('It is a tie! please play a new game')
   }
+  console.log('this is the turn', turn)
+  console.log('this is game over', winningLogic.gameOver)
 }
 
 const x2y3 = function () {
@@ -188,8 +209,11 @@ const x2y3 = function () {
     console.log('next persons turn!')
   }
   if (turn === 10 && winningLogic.gameOver === false) {
+    winningLogic.gameOver = true
     console.log('It is a tie! please play a new game')
+    console.log('this is game over', winningLogic.gameOver)
   }
+  console.log('this is the turn', turn)
 }
 
 console.log(gameBoard)
@@ -212,8 +236,19 @@ const x3y3 = function () {
     console.log('next persons turn!')
   }
   if (turn === 10 && winningLogic.gameOver === false) {
+    winningLogic.gameOver = true
     console.log('It is a tie! please play a new game')
+    console.log('this is game over', winningLogic.gameOver)
   }
+  console.log('this is the turn', turn)
+}
+
+const setTurn = function (newTurn) {
+  turn = newTurn
+}
+
+const setBoard = function (array) {
+  gameBoard = array
 }
 
 console.log(gameBoard)
@@ -227,5 +262,7 @@ export {
   x1y3,
   x2y3,
   x3y3,
-  gameBoard
+  gameBoard,
+  setTurn,
+  setBoard
 }

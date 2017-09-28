@@ -25,6 +25,8 @@ $(() => {
   $('#change-password').on('submit', submitValues.onChangePassword)
   // Sign Out handler
   $('#signoutbutton').on('submit', submitValues.onSignOut)
+  // This is the newGame handler
+  $('#newGameButton').on('submit', submitValues.onNewGame)
   // this is x vs o logic
   $('#x1y1').one('click', gamesLogic.x1y1)
   $('#x2y1').one('click', gamesLogic.x2y1)
@@ -34,7 +36,7 @@ $(() => {
   $('#x3y2').one('click', gamesLogic.x3y2)
   $('#x1y3').one('click', gamesLogic.x1y3)
   $('#x2y3').one('click', gamesLogic.x2y3)
-  $('#x3y3').on('click', gamesLogic.x3y3)
+  $('#x3y3').one('click', gamesLogic.x3y3)
 
 // MUST US FORM ID NOT BUTTON ID!!!!
 // This is winner logic
