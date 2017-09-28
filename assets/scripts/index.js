@@ -21,6 +21,10 @@ $(() => {
   $('#sign-up-submit').on('submit', submitValues.onSignUp)
   // sign up event handler
   $('#sign-in-submit').on('submit', submitValues.onSignIn)
+  // change password handler
+  $('#change-password').on('submit', submitValues.onChangePassword)
+  // Sign Out handler
+  $('#signoutbutton').on('submit', submitValues.onSignOut)
   // this is x vs o logic
   $('#x1y1').one('click', gamesLogic.x1y1)
   $('#x2y1').one('click', gamesLogic.x2y1)

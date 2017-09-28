@@ -24,7 +24,29 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 
+const onChangePassword = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.changePassword(data)
+  // console.log('data is ', data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
+}
+
+const onSignOut = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.signOut(data)
+  // console.log(data)
+    .then(ui.signOutSuccess)
+    .then(ui.addClassBoard)
+    .then(ui.removeClassSignin)
+    .catch(ui.signOutFailure)
+}
+
 export {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onChangePassword,
+  onSignOut
 }
