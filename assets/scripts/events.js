@@ -5,6 +5,7 @@ const api = require('./api')
 const ui = require('./ui')
 const gamesLogic = require('./gameLogic.js')
 const winningLogic = require('./winnerLogic')
+const store = require('./store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -39,7 +40,7 @@ const onSignOut = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   api.signOut(data)
-  // console.log(data)
+  // console.log('data is', data)
     .then(ui.signOutSuccess)
     .then(ui.addClassBoard)
     .then(ui.removeClassSignin)
@@ -64,8 +65,18 @@ const onNewGame = function (event) {
     .then($('#x3y3').one('click', gamesLogic.x3y3))
     .then(gamesLogic.setBoard([]))
     .then(winningLogic.gameOver = false)
+    .then(ui.startNewGame)
     .catch(ui.newGameFailure)
-  console.log('this is gameboard', gamesLogic.gameBoard)
+}
+
+const onUpdateGame = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.updateGame(data)
+  console.log('data is!!!!', data)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
+  // console.log('this is store.game', store.game.id)
 }
 
 export {
@@ -73,5 +84,6 @@ export {
   onSignIn,
   onChangePassword,
   onSignOut,
-  onNewGame
+  onNewGame,
+  onUpdateGame
 }

@@ -15,6 +15,7 @@ const signInSuccess = function (data) {
   console.log(data)
   $('#message').text('Signed in successfully')
   store.user = data.user
+  console.log('this is store.user', store.user)
 }
 
 const signInFailure = function (error) {
@@ -23,7 +24,6 @@ const signInFailure = function (error) {
 }
 
 const removeClass = function () {
-  $('#gameboard').removeClass('gameboard')
   $('#change-password').removeClass('gameboard')
   $('#signoutbutton').removeClass('gameboard')
   $('#newGameButton').removeClass('gameboard')
@@ -44,6 +44,9 @@ const addClassBoard = function () {
   $('#change-password').addClass('gameboard')
   $('#signoutbutton').addClass('gameboard')
   $('#newGameButton').addClass('gameboard')
+}
+const startNewGame = function () {
+  $('#gameboard').removeClass('gameboard')
 }
 
 const changePasswordSuccess = function (data) {
@@ -70,13 +73,26 @@ const signOutFailure = function (error) {
 const newGameSuccess = function (data) {
   // console.log(data)
   store.game = data.game
+  console.log('this is data 2..0', data)
   $('#message').text('You have successfully created a new game!')
-  console.log('this is store game ', store.game)
+  // console.log('this is store game id ', store.game.id)
 }
 
 const newGameFailure = function (error) {
   $('#message').text('We were unable to start a new game')
   console.error(error)
+}
+
+const updateGameSuccess = function (data) {
+  $('#message').text('We have tracked your latest move')
+  store.game = data.game
+  console.log('this is data!!!', data)
+}
+
+const updateGameFailure = function (error) {
+  $('#message').text('We were unable to start a new game')
+  console.log('this is error', error)
+  // console.log('this is store.game.id', store.game.id)
 }
 
 export {
@@ -93,5 +109,8 @@ export {
   addClassBoard,
   removeClassSignin,
   newGameSuccess,
-  newGameFailure
+  newGameFailure,
+  updateGameSuccess,
+  updateGameFailure,
+  startNewGame
 }

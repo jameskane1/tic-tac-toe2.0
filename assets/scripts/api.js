@@ -2,6 +2,7 @@
 
 const config = require('./config.js')
 const store = require('./store')
+// console.log('this is store game id', store.game.id)
 
 const createSignUp = function (data) {
   return $.ajax({
@@ -55,10 +56,30 @@ const newGame = function (data) {
   })
 }
 
+const updateGame = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game ': {
+        'cell ': {
+          'index ': 0,
+          'value ': 'X'
+        },
+        'over ': false
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createSignUp,
   createSignIn,
   changePassword,
   signOut,
-  newGame
+  newGame,
+  updateGame
 }
