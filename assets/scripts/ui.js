@@ -3,7 +3,6 @@ const store = require('./store')
 
 const signUpSuccess = function (data) {
   $('#message').text('you have successfully signed up!')
-  console.log(data)
 }
 
 const signUpFailure = function (error) {
@@ -56,7 +55,6 @@ const changePasswordFailure = function (error) {
 }
 
 const signOutSuccess = function () {
-  // console.log(data)
   $('#message').text('You have successfully signed out')
   store.user = null
 }
@@ -84,7 +82,6 @@ const updateGameFailure = function (error) {
 
 const gameTrackerSuccess = function (data) {
   $('#gamesPlayedMessage').text('This is your total games played! ' + data.games.length)
-  console.log('this is data!!!', data)
 }
 
 const gameTrackerFailure = function (error) {
