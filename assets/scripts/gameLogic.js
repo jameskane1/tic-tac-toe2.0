@@ -3,7 +3,6 @@
 const winningLogic = require('./winnerLogic')
 const api = require('./api')
 const ui = require('./ui')
-// const submitValues = require('./events.js')
 
 let turn = 1
 let gameBoard = []
