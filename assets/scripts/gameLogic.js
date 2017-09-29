@@ -30,14 +30,13 @@ const executeMove = function (event) {
   if (!isBox) {
     return
   }
-
-  ++turn
   const y = parseInt(event.target.id.split(',')[1])
   const x = parseInt(event.target.id.split(',')[0])
   const indexValue = y * 3 + x
   if (gameBoard[indexValue]) {
     return
   }
+  ++turn
   if (turn % 2 === 0 && winningLogic.gameOver === false) {
     gameBoard[indexValue] = 'X'
     event.target.innerHTML = 'X'

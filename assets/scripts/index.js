@@ -25,4 +25,6 @@ $(() => {
   $('#signoutbutton').on('submit', submitValues.onSignOut)
   // This is the newGame handler
   $('#newGameButton').on('submit', submitValues.onNewGame)
+
+  document.body.style.backgroundColor = 'transparent'
 })
