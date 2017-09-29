@@ -7,20 +7,16 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function (error) {
-  $('#message').text('your signup was unseccessful')
-  console.error(error)
+  $('#message').text('Your signup was unseccessful. Please try again.', error)
 }
 
 const signInSuccess = function (data) {
-  console.log(data)
   $('#message').text('Signed in successfully')
   store.user = data.user
-  console.log('this is store.user', store.user)
 }
 
 const signInFailure = function (error) {
-  $('#message').text('Incorrect Email or PW')
-  console.error(error)
+  $('#message').text('Incorrect Email or PW', error)
 }
 
 const removeClass = function () {
@@ -56,38 +52,30 @@ const changePasswordSuccess = function (data) {
 }
 
 const changePasswordFailure = function (error) {
-  $('#message').text('Incorrect PW')
-  console.error(error)
+  $('#message').text('Incorrect PW. Please try again', error)
 }
 
 const signOutSuccess = function () {
   // console.log(data)
   $('#message').text('You have successfully signed out')
   store.user = null
-
-  console.log(store.user)
 }
 
 const signOutFailure = function (error) {
-  $('#message').text('Unable to sign out')
-  console.error(error)
+  $('#message').text('Unable to sign out. Please try again', error)
 }
 
 const newGameSuccess = function (data) {
   store.game = data.game
-  console.log('this is data 2..0', data)
   $('#message').text('You have successfully created a new game!')
 }
 
 const newGameFailure = function (error) {
-  $('#message').text('We were unable to start a new game')
-  console.error(error)
+  $('#message').text('We were unable to start a new game. Please try again', error)
 }
 
 const updateGameSuccess = function (data) {
-  $('#message').text('We have tracked your latest move')
   store.game = data.game
-  console.log('this is data!!!', data)
 }
 
 const updateGameFailure = function (error) {
@@ -100,8 +88,7 @@ const gameTrackerSuccess = function (data) {
 }
 
 const gameTrackerFailure = function (error) {
-  $('#gamesPlayedMessage').text('Total games played cannot be displayed')
-  console.log(error)
+  $('#gamesPlayedMessage').text('Total games played cannot be displayed', error)
 }
 
 export {

@@ -2,9 +2,7 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-// const gamesLogic = require('./gameLogic')
 const submitValues = require('./events.js')
-// const winningLogic = require('./winnerLogic')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -27,11 +25,4 @@ $(() => {
   $('#signoutbutton').on('submit', submitValues.onSignOut)
   // This is the newGame handler
   $('#newGameButton').on('submit', submitValues.onNewGame)
-
-  // This is the game tracker status
-  // $('#sign-in-submit').on('submit', submitValues.onGameTracker)
-// MUST US FORM ID NOT BUTTON ID!!!!
-// This is winner logic
-
-// })
 })

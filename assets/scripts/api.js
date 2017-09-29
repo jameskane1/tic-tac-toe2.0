@@ -2,7 +2,6 @@
 
 const config = require('./config.js')
 const store = require('./store')
-// console.log('this is store game id', store.game.id)
 
 const createSignUp = function (data) {
   return $.ajax({
@@ -73,7 +72,6 @@ const updateGame = function (index, value, over) {
 }
 
 const gameData = function () {
-  console.log('this is store user', store.user.token)
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'GET',

@@ -5,13 +5,11 @@ const api = require('./api')
 const ui = require('./ui')
 const gamesLogic = require('./gameLogic.js')
 const winningLogic = require('./winnerLogic')
-// const store = require('./store')
 
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.createSignUp(data)
-  // console.log('data is ', data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
 }

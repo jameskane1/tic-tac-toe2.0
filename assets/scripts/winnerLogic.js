@@ -35,10 +35,6 @@ const oWins = function () {
   }
 }
 
-// const tie = function (gamesLogic.gameboard) {
-//   if gamesLogic.gameBoard.filter (unction ())
-// }
-
 export {
   xWins,
   oWins,

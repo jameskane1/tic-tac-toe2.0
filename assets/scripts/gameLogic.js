@@ -48,18 +48,16 @@ const executeMove = function (event) {
     $(this).unbind()
   }
   if (winningLogic.xWins() === true) {
-    console.log('X has won!!')
+    $('#message').text('X has Won, Please select New Game to play again')
   } else if (winningLogic.oWins() === true) {
-    console.log('O has won!!')
+    $('#message').text('O has Won, Please select New Game to play again')
   } else if (turn < 10) {
-    console.log('next persons turn!')
+    $('#message').text('Next players turn!')
   }
   if (turn === 10 && winningLogic.gameOver === false) {
     winningLogic.gameOver = true
-    console.log('It is a tie! please play a new game')
-    console.log('this is game over', winningLogic.gameOver)
+    $('#message').text('It is a tie! please select New Game to play again')
   }
-  console.log('this is the turn', turn)
   if (winningLogic.gameOver === true) {
     $('#gameboard').unbind('click')
   }
@@ -68,7 +66,6 @@ const executeMove = function (event) {
     .catch(ui.updateGameFailure)
 }
 
-console.log(gameBoard)
 export {
   gameBoard,
   setTurn,
