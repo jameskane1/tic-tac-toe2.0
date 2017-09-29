@@ -38,10 +38,10 @@ const executeMove = function (event) {
   ++turn
   if (turn % 2 === 0 && winningLogic.gameOver === false) {
     gameBoard[indexValue] = 'X'
-    event.target.innerHTML = 'X'
+    event.target.innerHTML = '<img src="https://i.ebayimg.com/images/a/(KGrHqUOKm4E4PccYS4mBONM7RtH-g~~/s-l300.jpg" height="75" width="75px">'
   } else if (turn % 2 !== 0 && winningLogic.gameOver === false) {
     gameBoard[indexValue] = 'O'
-    event.target.innerHTML = 'O'
+    event.target.innerHTML = '<img src="https://i.pinimg.com/736x/49/1b/c5/491bc5037c5d6ed1cb28d26f134cb6b4--espn-the-magazine-rob-gronkowski.jpg" height="75px" width="75px">'
   } else if (winningLogic.gameOver === true) {
     $(this).unbind()
   }
