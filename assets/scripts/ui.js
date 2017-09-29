@@ -44,9 +44,11 @@ const addClassBoard = function () {
   $('#change-password').addClass('gameboard')
   $('#signoutbutton').addClass('gameboard')
   $('#newGameButton').addClass('gameboard')
+  $('#gamesPlayedMessage').addClass('gameboard')
 }
 const startNewGame = function () {
   $('#gameboard').removeClass('gameboard')
+  $('#gamesPlayedMessage').removeClass('gameboard')
 }
 
 const changePasswordSuccess = function (data) {
@@ -94,7 +96,6 @@ const updateGameFailure = function (error) {
 
 const gameTrackerSuccess = function (data) {
   $('#gamesPlayedMessage').text('This is your total games played! ' + data.games.length)
-  store.game = data.game
   console.log('this is data!!!', data)
 }
 

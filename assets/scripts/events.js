@@ -23,7 +23,6 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .then(ui.removeClass)
     .then(ui.addClass)
-    .then(onGameTracker)
     .catch(ui.signInFailure)
 }
 
@@ -32,6 +31,9 @@ const onChangePassword = function (event) {
   event.preventDefault()
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
+    .then(() => {
+      $('#change-password')[0].reset()
+    })
     .catch(ui.changePasswordFailure)
 }
 
@@ -42,6 +44,12 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .then(ui.addClassBoard)
     .then(ui.removeClassSignin)
+    .then(() => {
+      $('#sign-in-submit')[0].reset()
+    })
+    .then(() => {
+      $('#sign-up-submit')[0].reset()
+    })
     .catch(ui.signOutFailure)
 }
 
@@ -59,8 +67,13 @@ const onNewGame = function (event) {
       $('#gameboard').unbind()
       $('#gameboard').on('click', gamesLogic.executeMove)
     })
-    .then(gamesLogic.setBoard([]))
-    .then(winningLogic.gameOver = false)
+    .then(onGameTracker)
+    .then(() => {
+      gamesLogic.setBoard([])
+    })
+    .then(() => {
+      winningLogic.gameOver = false
+    })
     .then(ui.startNewGame)
     .catch(ui.newGameFailure)
 }
