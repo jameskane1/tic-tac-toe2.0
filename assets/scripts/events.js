@@ -21,9 +21,9 @@ const onSignIn = function (event) {
   const data = getFormFields(this)
   api.createSignIn(data)
     .then(ui.signInSuccess)
-    .then(onGameTracker)
     .then(ui.removeClass)
     .then(ui.addClass)
+    .then(onGameTracker)
     .catch(ui.signInFailure)
 }
 
@@ -85,5 +85,6 @@ export {
   onChangePassword,
   onSignOut,
   onNewGame,
-  onUpdateGame
+  onUpdateGame,
+  onGameTracker
 }

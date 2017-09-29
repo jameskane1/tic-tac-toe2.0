@@ -28,6 +28,8 @@ $(() => {
   // This is the newGame handler
   $('#newGameButton').on('submit', submitValues.onNewGame)
 
+  // This is the game tracker status
+  // $('#sign-in-submit').on('submit', submitValues.onGameTracker)
 // MUST US FORM ID NOT BUTTON ID!!!!
 // This is winner logic
 
