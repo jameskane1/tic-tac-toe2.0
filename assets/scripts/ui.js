@@ -62,6 +62,7 @@ const signOutSuccess = function () {
   // console.log(data)
   $('#message').text('You have successfully signed out')
   store.user = null
+
   console.log(store.user)
 }
 
@@ -71,11 +72,9 @@ const signOutFailure = function (error) {
 }
 
 const newGameSuccess = function (data) {
-  // console.log(data)
   store.game = data.game
   console.log('this is data 2..0', data)
   $('#message').text('You have successfully created a new game!')
-  // console.log('this is store game id ', store.game.id)
 }
 
 const newGameFailure = function (error) {
@@ -90,9 +89,18 @@ const updateGameSuccess = function (data) {
 }
 
 const updateGameFailure = function (error) {
-  $('#message').text('We were unable to start a new game')
-  console.log('this is error', error)
-  // console.log('this is store.game.id', store.game.id)
+  $('#message').text('We were unable to track your move, your error was', error)
+}
+
+const gameTrackerSuccess = function (data) {
+  $('#gamesPlayedMessage').text('This is your total games played! ' + data.games.length)
+  store.game = data.game
+  console.log('this is data!!!', data)
+}
+
+const gameTrackerFailure = function (error) {
+  $('#gamesPlayedMessage').text('Total games played cannot be displayed')
+  console.log(error)
 }
 
 export {
@@ -112,5 +120,7 @@ export {
   newGameFailure,
   updateGameSuccess,
   updateGameFailure,
-  startNewGame
+  startNewGame,
+  gameTrackerSuccess,
+  gameTrackerFailure
 }

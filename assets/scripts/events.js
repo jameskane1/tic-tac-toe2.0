@@ -5,7 +5,7 @@ const api = require('./api')
 const ui = require('./ui')
 const gamesLogic = require('./gameLogic.js')
 const winningLogic = require('./winnerLogic')
-const store = require('./store')
+// const store = require('./store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -20,8 +20,8 @@ const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.createSignIn(data)
-  // console.log('data is ', data)
     .then(ui.signInSuccess)
+    .then(onGameTracker)
     .then(ui.removeClass)
     .then(ui.addClass)
     .catch(ui.signInFailure)
@@ -31,7 +31,6 @@ const onChangePassword = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   api.changePassword(data)
-  // console.log('data is ', data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
@@ -40,7 +39,6 @@ const onSignOut = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   api.signOut(data)
-  // console.log('data is', data)
     .then(ui.signOutSuccess)
     .then(ui.addClassBoard)
     .then(ui.removeClassSignin)
@@ -51,18 +49,16 @@ const onNewGame = function (event) {
   event.preventDefault()
   api.newGame(event)
     .then(ui.newGameSuccess)
-    .then(gamesLogic.setTurn(1))
-    .then($('.box').text(''))
-    .then($('.box').unbind('click'))
-    .then($('#x1y1').one('click', gamesLogic.x1y1))
-    .then($('#x2y1').one('click', gamesLogic.x2y1))
-    .then($('#x3y1').one('click', gamesLogic.x3y1))
-    .then($('#x1y2').one('click', gamesLogic.x1y2))
-    .then($('#x2y2').one('click', gamesLogic.x2y2))
-    .then($('#x3y2').one('click', gamesLogic.x3y2))
-    .then($('#x1y3').one('click', gamesLogic.x1y3))
-    .then($('#x2y3').one('click', gamesLogic.x2y3))
-    .then($('#x3y3').one('click', gamesLogic.x3y3))
+    .then(() => {
+      gamesLogic.setTurn(1)
+    })
+    .then(() => {
+      $('.box').text('')
+    })
+    .then(() => {
+      $('#gameboard').unbind()
+      $('#gameboard').on('click', gamesLogic.executeMove)
+    })
     .then(gamesLogic.setBoard([]))
     .then(winningLogic.gameOver = false)
     .then(ui.startNewGame)
@@ -73,10 +69,14 @@ const onUpdateGame = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   api.updateGame(data)
-  console.log('data is!!!!', data)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFailure)
-  // console.log('this is store.game', store.game.id)
+}
+
+const onGameTracker = function () {
+  api.gameData()
+    .then(ui.gameTrackerSuccess)
+    .catch(ui.gameTrackerFailure)
 }
 
 export {

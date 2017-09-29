@@ -21,7 +21,6 @@ const createSignIn = function (data) {
 }
 
 const changePassword = function (data) {
-  console.log(store.user.id)
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',
@@ -33,7 +32,6 @@ const changePassword = function (data) {
 }
 
 const signOut = function (data) {
-  // console.log(store.user.id)
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',
@@ -45,7 +43,6 @@ const signOut = function (data) {
 }
 
 const newGame = function (data) {
-  // console.log(store.user.id)
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
@@ -56,19 +53,30 @@ const newGame = function (data) {
   })
 }
 
-const updateGame = function (data) {
+const updateGame = function (index, value, over) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
-    data: {
-      'game ': {
-        'cell ': {
-          'index ': 0,
-          'value ': 'X'
-        },
-        'over ': false
-      }
+    headers: {
+      Authorization: 'Token token=' + store.user.token
     },
+    data: {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
+        },
+        'over': over
+      }
+    }
+  })
+}
+
+const gameData = function () {
+  console.log('this is store user', store.user.token)
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -81,5 +89,6 @@ module.exports = {
   changePassword,
   signOut,
   newGame,
-  updateGame
+  updateGame,
+  gameData
 }
