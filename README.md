@@ -12,7 +12,8 @@ API,
 JSON,
 bootstrap,
 
-Resources Used
+Resources Used:
+
 To complete this project i relied heavily on our class work documentation, especially for the api work I referencec the steps we used for all the ajax trainings.
 
 I also used W3 schools and stackoverflow to identify workarounds when I was stuck, for example when my boarders were triggering handler events I looked at stack overflow to see an example of how I can use background-color and margins to bypass having boarders.
