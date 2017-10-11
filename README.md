@@ -1,16 +1,16 @@
 Technologies Used
 
-JavaScript
-html
-CSS
-jquery/DOM
-ajax
+JavaScript,
+html,
+CSS,
+jquery/DOM,
+ajax,
   -GET
   -PATCH
   -POST
-API
-JSON
-bootstrap
+API,
+JSON,
+bootstrap,
 
 Resources Used
 To complete this project i relied heavily on our class work documentation, especially for the api work I referencec the steps we used for all the ajax trainings.
